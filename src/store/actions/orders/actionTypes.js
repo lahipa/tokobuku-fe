@@ -1,0 +1,5 @@
+export const GET_LIST_ORDER = "[ORDER] GET LIST ORDER";
+export const GET_ORDER_BY_ID = "[ORDER] GET ORDER BY ID";
+export const GET_NOTIF = "[ORDER] GET NOTIF";
+export const UPDATE_ORDER = "[ORDER] UPDATE ORDER";
+export const CREATE_ORDER = "[ORDER] CREATE ORDER";
