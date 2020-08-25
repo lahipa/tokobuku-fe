@@ -1,7 +1,6 @@
 {
   "name": "project-toko-buku",
   "start_url": ".",
-  "homepage": "https://mamamel.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
