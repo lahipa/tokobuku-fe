@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+#/build
 /asset
 /static
 favicon.ico
