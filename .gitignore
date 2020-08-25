@@ -10,6 +10,16 @@
 
 # production
 /build
+/asset
+/static
+favicon.ico
+index.html
+asset-manifest.json
+manifest.json
+robots.txt
+service.worker.js
+precache-manifest.*
+service-worker.js
 
 # misc
 .DS_Store

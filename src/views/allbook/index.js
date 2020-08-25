@@ -49,7 +49,7 @@ const AllBook = (props) => {
           <Grid container spacing={3}>
             {books && books.rows.length !== 0 ? (
               books.rows &&
-              books.rows.slice(0, 8).map((val) => {
+              books.rows.map((val) => {
                 return (
                   <Grid item lg={3} key={val.id}>
                     <CardBuku dataCard={val} dataLogin={dataLogin} />

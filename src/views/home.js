@@ -12,7 +12,7 @@ import {
   Typography,
   Icon,
 } from "@material-ui/core";
-import { Alert, AlertTitle } from "@material-ui/lab";
+import { Alert, AlertTitle, Skeleton } from "@material-ui/lab";
 import { styled } from "@material-ui/core/styles";
 import { dataLogin } from "../utils/globals";
 import { getListBook } from "../store/actions/books";
@@ -60,6 +60,35 @@ const Home = (props) => {
   }, [match]);
 
   const handleOnDragStart = (e) => e.preventDefault();
+
+  const renderBooks = () => {
+    if (books.rows && books.rows.length !== 0) {
+      return (
+        books.rows &&
+        books.rows.slice(0, 8).map((val) => {
+          return (
+            <Grid item lg={3} key={val.id}>
+              <CardBuku dataCard={val} dataLogin={dataLogin} />
+            </Grid>
+          );
+        })
+      );
+    } else {
+      let skeleton = [];
+      for (let i = 0; i < 8; i++) {
+        skeleton.push(
+          <Grid item lg={3}>
+            <Skeleton variant="rect" width="100%" height={163.13} />
+            <Box pt={0.5}>
+              <Skeleton />
+              <Skeleton width="60%" />
+            </Box>
+          </Grid>
+        );
+      }
+      return skeleton;
+    }
+  };
 
   return (
     <Layout>
@@ -109,22 +138,7 @@ const Home = (props) => {
           </Box>
           <Box pb={20}>
             <Grid container spacing={3}>
-              {books ? (
-                books.rows &&
-                books.rows.slice(0, 8).map((val) => {
-                  return (
-                    <Grid item lg={3} key={val.id}>
-                      <CardBuku dataCard={val} dataLogin={dataLogin} />
-                    </Grid>
-                  );
-                })
-              ) : (
-                <Alert severity="warning">
-                  <AlertTitle>Tidak ada data buku!</AlertTitle>
-                  Data tidak tersedia di database atau tidak terload dengan
-                  benar
-                </Alert>
-              )}
+              {renderBooks()}
             </Grid>
           </Box>
         </Container>
