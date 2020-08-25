@@ -1,4 +1,4 @@
-export const ENDPOINT = "https://mamamel.herokuapp.com";
+export const ENDPOINT = "https://mamamel.herokuapp.com/api";
 export const api_key = "";
 export const dataLogin = window.localStorage.getItem("dataLogin")
   ? JSON.parse(window.localStorage.getItem("dataLogin"))
