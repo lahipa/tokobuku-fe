@@ -1,7 +1,7 @@
 {
   "name": "mamamel",
   "start_url": ".",
-  "homepage": "https://mamamel.netlify.app/build",
+  "homepage": "https://mamamel.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
