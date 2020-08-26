@@ -47,7 +47,7 @@ const AllBook = (props) => {
         </Box>
         <Box pb={20}>
           <Grid container spacing={3}>
-            {books && books.rows.length !== 0 ? (
+            {books.rows && books.rows.length !== 0 ? (
               books.rows &&
               books.rows.map((val) => {
                 return (
