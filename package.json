@@ -1,9 +1,9 @@
 {
   "name": "mamamel",
-  "start_url": ".",
-  "homepage": "https://mamamel.netlify.app/",
   "version": "0.1.0",
   "private": true,
+  "start_url": ".",
+  "main": "./public/index.html",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
