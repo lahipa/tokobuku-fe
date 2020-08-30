@@ -48,13 +48,6 @@ const useStyles = makeStyles((theme) => ({
 const ListComponent = (props) => {
   const [data, setData] = useState({});
   const [image_url, setImage] = useState("");
-  // const [kategori_id, setKategori] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [harga, setHarga] = useState("");
-  // const [author, setAuthor] = useState("");
-  // const [no_isbn, setIsbn] = useState("");
-  // const [berat, setBerat] = useState("");
-  // const [synopsis, setSynopsis] = useState("");
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const {
@@ -81,6 +74,7 @@ const ListComponent = (props) => {
         stok: listData.stok,
         synopsis: listData.synopsis,
       });
+      setImage(listData.image_url);
     }
   }, [listData]);
 
@@ -297,9 +291,17 @@ const ListComponent = (props) => {
                 </div>
               </Grid>
               <Grid item md lg>
-                <span>
-                  {image_url ? image_url.name : listData.image_url.substr(21)}
-                </span>
+                <div
+                  style={{
+                    height: "36px",
+                    flex: "1",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  className={classes.withoutLabel}
+                >
+                  {image_url.name ? image_url.name : image_url.substr(21)}
+                </div>
               </Grid>
             </Grid>
             <Grid container spacing={3}>

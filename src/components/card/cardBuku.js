@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const CardBuku = (props) => {
   const [open, setOpen] = useState(false);
   const [authType, setAuthType] = useState("register");
-  const { dataCard, user, carts, addToCart, dataLogin, isLogin } = props;
+  const { key, dataCard, user, carts, addToCart, dataLogin, isLogin } = props;
   const history = useHistory();
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();

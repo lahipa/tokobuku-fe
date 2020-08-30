@@ -39,13 +39,6 @@ const useStyles = makeStyles((theme) => ({
 const AddBooks = (props) => {
   const [data, setData] = useState({});
   const [image_url, setImage] = useState("");
-  // const [kategori_id, setKategori] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [harga, setHarga] = useState("");
-  // const [author, setAuthor] = useState("");
-  // const [no_isbn, setIsbn] = useState("");
-  // const [berat, setBerat] = useState("");
-  // const [synopsis, setSynopsis] = useState("");
   const { doAdd, open, handleClose, categories, getKategori } = props;
 
   const classes = useStyles();
@@ -53,6 +46,7 @@ const AddBooks = (props) => {
   useEffect(() => {
     if (open) {
       getKategori();
+      setImage("");
     }
   }, [open]);
 
@@ -230,7 +224,17 @@ const AddBooks = (props) => {
               </div>
             </Grid>
             <Grid item md lg>
-              <span>{image_url.name}</span>
+              <div
+                style={{
+                  height: "36px",
+                  flex: "1",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                className={classes.withoutLabel}
+              >
+                {image_url.name}
+              </div>
             </Grid>
           </Grid>
           <Grid container spacing={3}>

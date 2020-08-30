@@ -61,34 +61,27 @@ const Home = (props) => {
 
   const handleOnDragStart = (e) => e.preventDefault();
 
-  const renderBooks = () => {
-    if (books.rows && books.rows.length !== 0) {
-      return (
-        books.rows &&
-        books.rows.slice(0, 8).map((val) => {
-          return (
-            <Grid item lg={3} key={val.id}>
-              <CardBuku dataCard={val} dataLogin={dataLogin} />
-            </Grid>
-          );
-        })
-      );
-    } else {
-      let skeleton = [];
-      for (let i = 0; i < 8; i++) {
-        skeleton.push(
-          <Grid item lg={3}>
-            <Skeleton variant="rect" width="100%" height={163.13} />
-            <Box pt={0.5}>
-              <Skeleton />
-              <Skeleton width="60%" />
-            </Box>
-          </Grid>
-        );
-      }
-      return skeleton;
+  const isPrime = (num) => {
+    if (num < 2) {
+      return false;
     }
+
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
   };
+
+  let prime = [];
+  for (let i = 0; i < 100; i++) {
+    if (isPrime(i)) {
+      prime.push(i);
+    }
+  }
+  console.log(prime);
 
   return (
     <Layout>
@@ -138,7 +131,29 @@ const Home = (props) => {
           </Box>
           <Box pb={20}>
             <Grid container spacing={3}>
-              {renderBooks()}
+              {books.rows && books.rows.length !== 0
+                ? books.rows?.slice(0, 8).map((val) => {
+                    return (
+                      <Grid item lg={3}>
+                        <CardBuku
+                          dataCard={val}
+                          key={val.id}
+                          dataLogin={dataLogin}
+                        />
+                      </Grid>
+                    );
+                  })
+                : Array(8)
+                    .fill()
+                    .map((_) => (
+                      <Grid item lg={3}>
+                        <Skeleton variant="rect" width="100%" height={163.13} />
+                        <Box pt={0.5}>
+                          <Skeleton />
+                          <Skeleton width="60%" />
+                        </Box>
+                      </Grid>
+                    ))}
             </Grid>
           </Box>
         </Container>
